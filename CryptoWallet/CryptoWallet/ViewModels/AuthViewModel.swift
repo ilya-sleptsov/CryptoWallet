@@ -11,11 +11,15 @@ class AuthViewModel: AuthViewModelType {
     var login: String = ""
     var password: String = ""
     
-    func validateLogin(login: String, password: String) -> Bool {
+    func validateLogin() -> Bool {
         return login == "1234" && password == "1234"
     }
     
-    func loginButtonTapped() -> Bool {
-        return validateLogin(login: login, password: password)
+    func loginButtonTapped(completionHandler: @escaping (Bool) -> Void) {
+        if validateLogin() {
+            completionHandler(true)
+        } else {
+            completionHandler(false)
+        }
     }
 }

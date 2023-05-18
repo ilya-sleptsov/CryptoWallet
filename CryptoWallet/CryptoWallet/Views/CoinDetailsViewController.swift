@@ -6,68 +6,69 @@
 //
 
 import UIKit
+import SnapKit
 
 class CoinDetailsViewController: UIViewController {
     
+    private var viewModel: CoinDetailsViewModel
     var coin: Coin?
     
-    let nameLabel = UILabel()
-    let priceLabel = UILabel()
-    let change24HoursLabel = UILabel()
-    let change1HourLabel = UILabel()
-
+    private let nameLabel = UILabel()
+    private let priceLabel = UILabel()
+    private let change24HoursLabel = UILabel()
+    private let change1HourLabel = UILabel()
+    
+    init(viewModel: CoinDetailsViewModel, coin: Coin?) {
+        self.viewModel = viewModel
+        self.coin = coin
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
         setupUI()
-        setupConstraints()
-        updateUI()
-
     }
     
     private func setupUI() {
         
         nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        priceLabel.font = UIFont.systemFont(ofSize: 16)
-        change24HoursLabel.font = UIFont.systemFont(ofSize: 16)
-        change1HourLabel.font = UIFont.systemFont(ofSize: 16)
-        
         view.addSubview(nameLabel)
-        view.addSubview(priceLabel)
-        view.addSubview(change24HoursLabel)
-        view.addSubview(change1HourLabel)
-    }
-    
-    private func setupConstraints() {
-        
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
         }
+        nameLabel.text = viewModel.name
         
+        priceLabel.font = UIFont.systemFont(ofSize: 16)
+        view.addSubview(priceLabel)
         priceLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(nameLabel.snp.bottom).offset(20)
         }
+        priceLabel.text = "Цена: \(viewModel.priceUsd) USD"
         
+        change24HoursLabel.font = UIFont.systemFont(ofSize: 16)
+        view.addSubview(change24HoursLabel)
         change24HoursLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(priceLabel.snp.bottom).offset(20)
         }
+        change24HoursLabel.text = "Изменение цены за 24 часа: \(viewModel.change24Hours) %"
         
+        change1HourLabel.font = UIFont.systemFont(ofSize: 16)
+        view.addSubview(change1HourLabel)
         change1HourLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(change24HoursLabel.snp.bottom).offset(20)
         }
+        change1HourLabel.text = "Изменение цены за 1 час: \(viewModel.change1Hour) %"
     }
     
-    private func updateUI() {
-        
-        nameLabel.text = coin?.name ?? ""
-        priceLabel.text = "Цена: \(String(format: "%.2f", coin?.marketData?.priceUsd ?? 0.0)) USD"
-        change24HoursLabel.text = "Изменение цены за 24 часа: \(String(format: "%.2f", coin?.marketData?.change24Hours ?? 0.0)) %"
-        change1HourLabel.text = "Изменение цены за 1 час: \(String(format: "%.2f", coin?.marketData?.change1Hour ?? 0.0)) %"
-    }
 }
+

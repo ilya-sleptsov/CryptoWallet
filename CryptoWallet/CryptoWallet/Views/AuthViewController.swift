@@ -10,7 +10,7 @@ import SnapKit
 
 class AuthViewController: UIViewController {
     
-    let authViewModel = AuthViewModel()
+    private let authViewModel = AuthViewModel()
     
     private let titleLabel = UILabel()
     private let loginTextField = UITextField()
@@ -21,10 +21,10 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        setupUI()
     }
     
-    private func setupViews() {
+    private func setupUI() {
         view.backgroundColor = .white
         
         
@@ -33,7 +33,7 @@ class AuthViewController: UIViewController {
         view.addSubview(loginTextField)
         loginTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-30)
+            make.centerY.equalToSuperview().offset(-35)
             make.width.equalToSuperview().multipliedBy(0.8)
         }
         
@@ -51,7 +51,7 @@ class AuthViewController: UIViewController {
         view.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(30)
+            make.centerY.equalToSuperview().offset(35)
             make.width.equalToSuperview().multipliedBy(0.8)
         }
         
@@ -78,22 +78,33 @@ class AuthViewController: UIViewController {
         }
     }
     
-    @objc private func loginButtonTapped() {
-        if authViewModel.validateLogin(login: loginTextField.text ?? "", password: passwordTextField.text ?? "") {
-            let alert = UIAlertController(title: "Добро пожаловать!", message: "Вход выполнен успешно!", preferredStyle: .alert)
-            self.present(alert, animated: true)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                alert.dismiss(animated: true, completion: {
-                    let coinsListTableViewController = CoinsListTableViewController()
-                    let navigationController = UINavigationController(rootViewController: coinsListTableViewController)
-                    self.view.window?.rootViewController = navigationController
-                })
-            }
-        } else {
-            loginStatusLabel.text = "Неправильный логин или пароль"
-            passwordStatusLabel.text = "Попробуйте еще раз!"
-        }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
+    @objc private func loginButtonTapped() {
+        authViewModel.login = loginTextField.text ?? ""
+        authViewModel.password = passwordTextField.text ?? ""
+        
+        authViewModel.loginButtonTapped { [weak self] isSuccess in
+            if  isSuccess {
+                let alert = UIAlertController(title: "Добро пожаловать!", message: "Вход выполнен успешно!", preferredStyle: .alert)
+                self?.present(alert, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    alert.dismiss(animated: true, completion: {
+                        let coinsListViewModel = CoinsListViewModel()
+                        let coinsListTableViewController = CoinsListTableViewController(viewModel: coinsListViewModel)
+                        let navigationController = UINavigationController(rootViewController: coinsListTableViewController)
+                        self?.view.window?.rootViewController = navigationController
+                    })
+                }
+            } else {
+                self?.loginStatusLabel.text = "Неправильный логин или пароль"
+                self?.loginStatusLabel.textColor = .red
+                self?.passwordStatusLabel.text = "Попробуйте еще раз!"
+                self?.passwordStatusLabel.textColor = .red
+            }
+        }
+    }    
 }
 
