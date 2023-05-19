@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8F15B5B168BEB1E3A811B519 /* Pods_CryptoWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E772EB6169143CC0B0A8E18F /* Pods_CryptoWallet.framework */; };
+		90B50D792A1616E900B08EFF /* CryptoWalletModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90B50D772A1616E900B08EFF /* CryptoWalletModel.xcdatamodeld */; };
 		90EB4BF129F9516300CBAA91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4BF029F9516300CBAA91 /* AppDelegate.swift */; };
 		90EB4BF529F9516300CBAA91 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4BF429F9516300CBAA91 /* AuthViewController.swift */; };
 		90EB4BFA29F9516500CBAA91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90EB4BF929F9516500CBAA91 /* Assets.xcassets */; };
 		90EB4BFD29F9516500CBAA91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90EB4BFB29F9516500CBAA91 /* LaunchScreen.storyboard */; };
 		90EB4C0929F9576700CBAA91 /* CoinsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4C0829F9576700CBAA91 /* CoinsListTableViewController.swift */; };
-		90EB4C0B29F957C200CBAA91 /* CoinsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4C0A29F957C200CBAA91 /* CoinsListTableViewCell.swift */; };
 		90EB4C0D29F9582600CBAA91 /* CoinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4C0C29F9582600CBAA91 /* CoinDetailsViewController.swift */; };
-		90EB4C0F29F958D900CBAA91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4C0E29F958D900CBAA91 /* User.swift */; };
 		90EB4C1129F958FA00CBAA91 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4C1029F958FA00CBAA91 /* AuthViewModel.swift */; };
 		90EB4C1329F9593700CBAA91 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4C1229F9593700CBAA91 /* Coin.swift */; };
 		90EB4C1529F959A000CBAA91 /* CoinsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB4C1429F959A000CBAA91 /* CoinsListViewModel.swift */; };
@@ -26,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		2919947AAAE6C78141F78ED9 /* Pods-CryptoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoWallet.debug.xcconfig"; path = "Target Support Files/Pods-CryptoWallet/Pods-CryptoWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		90B50D782A1616E900B08EFF /* CryptoWalletModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoWalletModel.xcdatamodel; sourceTree = "<group>"; };
 		90EB4BED29F9516300CBAA91 /* CryptoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EB4BF029F9516300CBAA91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90EB4BF429F9516300CBAA91 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -33,9 +33,7 @@
 		90EB4BFC29F9516500CBAA91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90EB4BFE29F9516500CBAA91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90EB4C0829F9576700CBAA91 /* CoinsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListTableViewController.swift; sourceTree = "<group>"; };
-		90EB4C0A29F957C200CBAA91 /* CoinsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListTableViewCell.swift; sourceTree = "<group>"; };
 		90EB4C0C29F9582600CBAA91 /* CoinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewController.swift; sourceTree = "<group>"; };
-		90EB4C0E29F958D900CBAA91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		90EB4C1029F958FA00CBAA91 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		90EB4C1229F9593700CBAA91 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		90EB4C1429F959A000CBAA91 /* CoinsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +94,7 @@
 				90EB4BF929F9516500CBAA91 /* Assets.xcassets */,
 				90EB4BFB29F9516500CBAA91 /* LaunchScreen.storyboard */,
 				90EB4BFE29F9516500CBAA91 /* Info.plist */,
+				90B50D772A1616E900B08EFF /* CryptoWalletModel.xcdatamodeld */,
 			);
 			path = CryptoWallet;
 			sourceTree = "<group>";
@@ -105,7 +104,6 @@
 			children = (
 				90EB4BF429F9516300CBAA91 /* AuthViewController.swift */,
 				90EB4C0829F9576700CBAA91 /* CoinsListTableViewController.swift */,
-				90EB4C0A29F957C200CBAA91 /* CoinsListTableViewCell.swift */,
 				90EB4C0C29F9582600CBAA91 /* CoinDetailsViewController.swift */,
 			);
 			path = Views;
@@ -124,7 +122,6 @@
 		90EB4C0629F955A100CBAA91 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				90EB4C0E29F958D900CBAA91 /* User.swift */,
 				90EB4C1229F9593700CBAA91 /* Coin.swift */,
 			);
 			path = Models;
@@ -262,13 +259,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				90EB4BF529F9516300CBAA91 /* AuthViewController.swift in Sources */,
+				90B50D792A1616E900B08EFF /* CryptoWalletModel.xcdatamodeld in Sources */,
 				90EB4C1B29FAAAA900CBAA91 /* CoinsListViewModelType.swift in Sources */,
 				90EB4BF129F9516300CBAA91 /* AppDelegate.swift in Sources */,
 				90EB4C1729F95A6100CBAA91 /* CoinDetailsViewModel.swift in Sources */,
-				90EB4C0F29F958D900CBAA91 /* User.swift in Sources */,
 				90EB4C1129F958FA00CBAA91 /* AuthViewModel.swift in Sources */,
 				90EB4C0D29F9582600CBAA91 /* CoinDetailsViewController.swift in Sources */,
-				90EB4C0B29F957C200CBAA91 /* CoinsListTableViewCell.swift in Sources */,
 				90EB4C1529F959A000CBAA91 /* CoinsListViewModel.swift in Sources */,
 				90EB4C1329F9593700CBAA91 /* Coin.swift in Sources */,
 				90EB4C1929FA87B900CBAA91 /* AuthViewModelType.swift in Sources */,
@@ -484,6 +480,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		90B50D772A1616E900B08EFF /* CryptoWalletModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				90B50D782A1616E900B08EFF /* CryptoWalletModel.xcdatamodel */,
+			);
+			currentVersion = 90B50D782A1616E900B08EFF /* CryptoWalletModel.xcdatamodel */;
+			path = CryptoWalletModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 90EB4BE529F9516300CBAA91 /* Project object */;
 }

@@ -8,10 +8,12 @@
 import Foundation
 
 protocol AuthViewModelType {
-    var login: String { get }
-    var password: String { get }
+    var login: String { get set }
+    var password: String { get set }
     
-    func validateLogin(login: String, password: String) -> Bool
+    func validateLogin() -> Bool
     
-    func loginButtonTapped() -> Bool
+    func loginButtonTapped(completionHandler: @escaping (Bool) -> Void)
+    
+    func handleSuccessfulLogin()
 }
